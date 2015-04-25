@@ -14,6 +14,10 @@ module.exports = {
       type: 'boolean',
       defaultsTo: false
     },
+    isSocialAlias: {
+      type: 'boolean',
+      defaultsTo: false
+    },
     email: {
       type: 'email',
       unique: true

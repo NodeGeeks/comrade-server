@@ -11,6 +11,12 @@ module.exports = {
     owner: {
       model: 'user'
     }
+    /**
+     * todo implement a limits property that is a many to one.
+     * the limit model is used to build a dynamic condition to block or allow specific user interaction between them and
+     * a friend. For example: User chooses a friend 'can not send location invite'.
+     */
+
   }
 };
 

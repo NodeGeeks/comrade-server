@@ -13,18 +13,21 @@ module.exports = function(req, res, next) {
   var token = req.headers.token;
   User.findOne({id: id }).exec( function found(err, user) {
 
+    if (_.isEmpty(token)) {
+      return res.json(ErrorService.responseObjects.invalidToken);
+    }
     if (err) {
-      return res.serverError(err);
+      return res.json({error: err});
     }
 
     if (!user) {
-      return res.forbidden('bad access token');
+      return res.json(ErrorService.responseObjects.invalidToken);
     }
 
     if (user.token == token) {
       return next();
     } else {
-      return res.forbidden('bad access token');
+      return res.json(ErrorService.responseObjects.invalidToken);
     }
 
   });

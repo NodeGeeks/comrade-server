@@ -15,6 +15,10 @@ module.exports = {
     },
     owner: {
       model: 'user'
+    },
+    socialPlatform: 'string',
+    aliasOwner: {
+      model: 'user'
     }
   }
 };

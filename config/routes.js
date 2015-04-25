@@ -51,9 +51,14 @@ module.exports.routes = {
     action: 'logout'
   },
 
-  'POST /user/:id/add': {
+  'POST /user/:id/friend': {
     controller: 'UserController',
-    action: 'add'
+    action: 'friend'
+  },
+
+  'DELETE /user/:id/unfriend': {
+    controller: 'UserController',
+    action: 'unfriend'
   },
 
   'POST /user/:id/identity': {
@@ -81,11 +86,6 @@ module.exports.routes = {
     action: 'notifications'
   },
 
-  'GET /user/:id/friend/:friend': {
-    controller: 'UserController',
-    action: 'friend'
-  },
-
   'POST /user/:id/friend/:friend/invite': {
     controller: 'LocationController',
     action: 'invite'
@@ -95,6 +95,17 @@ module.exports.routes = {
     controller: 'UserController',
     action: 'message'
   },
+
+  /**
+   * Import Routes
+   * @description: All the routes that are used to import things like friends from social media or contacts
+   */
+
+  'POST /user/:id/import/friends': {
+    controller: 'ImportController',
+    action: 'friends'
+  },
+
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *
